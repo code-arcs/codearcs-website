@@ -52,6 +52,13 @@ angular.module('de.codearcs.website')
                         function process() {
                             if (idx < chars.length) {
                                 codeBlock.find('.cursor').remove();
+
+                                while(chars[idx] === " ") {
+                                    partialText += chars[idx];
+                                    idx++
+                                    codeBlock.text(partialText);
+                                }
+
                                 partialText += chars[idx];
                                 codeBlock.text(partialText);
                                 idx++;
