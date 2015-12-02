@@ -1,0 +1,23 @@
+{
+  "name": "codearcs.de",
+  "authors": [
+    "Stephan Köninger <stephan.koeninger@gbtec.de>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlight": "https://github.com/isagalaev/highlight.js",
+    "angular": "angularjs#~1.4.8",
+    "font-awesome": "~4.5.0"
+  }
+}
