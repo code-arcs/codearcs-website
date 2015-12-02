@@ -54,17 +54,36 @@ a:focus {
     color: rgba(0,0,0,0.5);
 }
 
-.content .banner {
+.content .container {
     width: 400px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.content .banner {
     background-color: rgba(140,208,211,0.6);
     padding: 5px 15px;
-    margin: 0 auto;
 }
 .content .banner .logo {
     margin: 0 0 30px 0;
 }
 .content .banner .social {
     margin-top: 80px;
+}
+
+.content .authors {
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: absolute;
+    background-color: rgba(140,208,211,0.6);
+    bottom: 0;
+}
+
+@media (max-height: 600px) {
+    .content .authors {
+        display: none;
+    }
 }
 
 code-console pre {
@@ -88,4 +107,12 @@ code-console .overlay {
 }
 pre {
     margin: 0;
+}
+img.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 6px;
+    padding: 0 5px;
 }

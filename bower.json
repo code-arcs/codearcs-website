@@ -16,8 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "highlight": "https://github.com/isagalaev/highlight.js",
     "angular": "angularjs#~1.4.8",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "highlightjs": "~8.9.1"
   }
 }
