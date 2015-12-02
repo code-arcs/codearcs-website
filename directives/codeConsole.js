@@ -14,12 +14,14 @@ angular.module('de.codearcs.website')
                     hljs.highlightBlock(codeBlock[0]);
                     codeBlock.append(cursor);
 
-                    RandomFileService.getRandomFile()
-                        .then(function (file) {
-                            wholeText = file.data;
-                            var wholeTextLines = wholeText.split(/(\n)/);
-                            processLines(wholeTextLines, 0);
-                        });
+                    $timeout(function () {
+                        RandomFileService.getRandomFile()
+                            .then(function (file) {
+                                wholeText = file.data;
+                                var wholeTextLines = wholeText.split(/(\n)/);
+                                processLines(wholeTextLines, 0);
+                            });
+                    }, random(1000, 4000));
 
                     function processLines(lines, lineIndex) {
                         var isLastElementVisible = isElementInViewport($('span:last', codeBlock)[0]);
@@ -53,7 +55,7 @@ angular.module('de.codearcs.website')
                             if (idx < chars.length) {
                                 codeBlock.find('.cursor').remove();
 
-                                while(chars[idx] === " ") {
+                                while (chars[idx] === " ") {
                                     partialText += chars[idx];
                                     idx++
                                     codeBlock.text(partialText);
