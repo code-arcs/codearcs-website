@@ -10,11 +10,8 @@ angular.module('de.codearcs.website')
             
                 RandomFileService.getRandomFile()
                     .then(function (file) {
-                        var wholeTextLines = file.data.split('\n');
-                                                           
+                        var wholeTextLines = file.data.split('\n|\r');
                         processLines(wholeTextLines, 0);
-                        
-                        
                         hljs.highlightBlock(codeBlock[0]);
                     });
                     
@@ -39,7 +36,6 @@ angular.module('de.codearcs.website')
                             partialText += chars[idx];
                             codeBlock.text(partialText);
                             idx++;
-                            
                             hljs.highlightBlock(codeBlock[0]);
                         } else {
                             $interval.cancel(interval);
