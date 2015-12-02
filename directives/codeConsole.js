@@ -11,6 +11,9 @@ angular.module('de.codearcs.website')
                     var cursor = $(document.createElement('span')).addClass('cursor');
                     var wholeText = "";
 
+                    hljs.highlightBlock(codeBlock[0]);
+                    codeBlock.append(cursor);
+
                     RandomFileService.getRandomFile()
                         .then(function (file) {
                             wholeText = file.data;
@@ -29,8 +32,7 @@ angular.module('de.codearcs.website')
                             return processLine(lines, lineIndex)
                                 .then(function () {
                                     if (lineIndex <= lines.length) {
-                                        var intervalSpeed = lines[lineIndex].trim().length > 0 ? waitAfterLineDuration : 0;
-
+                                        var intervalSpeed = lines[lineIndex].trim().length > 0 ? random(waitAfterLineDuration, waitAfterLineDuration * 2) : 0;
                                         $timeout(function () {
                                             return processLines(lines, ++lineIndex);
                                         }, intervalSpeed);
@@ -49,10 +51,12 @@ angular.module('de.codearcs.website')
 
                         function process() {
                             if (idx < chars.length) {
+                                codeBlock.find('.cursor').remove();
                                 partialText += chars[idx];
                                 codeBlock.text(partialText);
                                 idx++;
                                 hljs.highlightBlock(codeBlock[0]);
+                                codeBlock.append(cursor);
                             } else {
                                 deferred.resolve();
                                 $interval.cancel(interval);
@@ -84,6 +88,10 @@ angular.module('de.codearcs.website')
                             (top + height) > window.pageYOffset &&
                             (left + width) > window.pageXOffset
                         );
+                    }
+
+                    function random(min, max) {
+                        return Math.floor(Math.random() * (max - min + 1) + min);
                     }
                 }
             }

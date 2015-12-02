@@ -89,17 +89,25 @@ a:focus {
 code-console pre {
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 100%;
     font-size: 1.2em;
     line-height: 1.3em;
 }
+code-console .cursor {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: 1px;
+    height: 1.4rem;
+    margin-left: 3px;
+    background-color: #fff;
+    animation: blink 1s steps(2, start) infinite;
+    -webkit-animation: blink 1s steps(2, start) infinite;
+}
 code-console .overlay {
     position: absolute;
     z-index: 2;
-    width: 100%;
     left: 0;
     height: 100%;
     width: 100%;
@@ -115,4 +123,15 @@ img.avatar {
     vertical-align: middle;
     border-radius: 6px;
     padding: 0 5px;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink {
+    to {
+        visibility: hidden;
+    }
 }
