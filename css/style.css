@@ -6,13 +6,13 @@ html {
 
 body {
     min-height: 100%;
+    background-color: #3f3f3f;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.2rem;
 }
 
 body {
     margin: 0;
-    overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -57,42 +57,38 @@ a:focus {
 }
 
 .content .container {
-    width: 340px;
+    width: 30rem;
+    max-width: 100%;
     height: 100%;
     margin: 0 auto;
     position: relative;
 }
 
-.content .banner {
+.banner {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 5px 15px;
 }
 
-.content .banner .logo {
-    margin: 0 0 30px 0;
-    height: 175px;
+.logo {
+    margin: 2rem 0 1rem 0;
+    height: 15rem;
 }
 
-.content .authors {
+.authors {
     width: 100%;
     margin: 0 auto;
     position: absolute;
     bottom: 0;
 }
 
-.content .authors div {
+.authors div {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-@media (max-height: 600px) {
-    .content .authors {
-        display: none;
-    }
-}
-
 code-console pre {
     position: absolute;
+    box-sizing: border-box;
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -131,8 +127,9 @@ img.avatar {
     line-height: 1;
     vertical-align: middle;
     border-radius: 100%;
-    border: 4px solid rgba(255, 255, 255, 0.6);
-    margin: 0 5px;
+    border: .4rem solid rgba(255, 255, 255, 0.6);
+    margin: 0 1rem;
+    height: 6rem;
 }
 
 @keyframes blink {
@@ -158,8 +155,29 @@ img.avatar {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
 }
+
+@media (max-width: 400px) {
+    html {
+        font-size: 8px;
+    }
+}
 @media (max-width: 750px) {
     .social {
+        display: none;
+    }
+}
+@media (max-height: 500px) {
+    .logo {
+        height: 10rem;
+    }
+}
+@media (max-height: 400px) {
+    .logo {
+        display: none;
+    }
+}
+@media (max-height: 300px) {
+    .subtitle {
         display: none;
     }
 }
