@@ -2,7 +2,7 @@ angular.module('de.codearcs.website')
     .directive('codeConsole', ['$http', '$interval', '$timeout', '$q', 'RandomFileService',
         function ($http, $interval, $timeout, $q, RandomFileService) {
             return {
-                template: '<code><pre class="javascript"></pre></code>',
+                template: '<div class="overlay"></div><code><pre class="javascript"></pre></code>',
                 link: function (scope, element) {
                     var partialText = "";
                     var codeBlock = element.find('pre');
