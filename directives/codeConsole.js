@@ -2,7 +2,7 @@ angular.module('de.codearcs.website')
     .directive('codeConsole', ['$http', '$interval', '$timeout', '$q', 'RandomFileService',
         function ($http, $interval, $timeout, $q, RandomFileService) {
             return {
-                template: '<div class="overlay"></div><code><pre class="javascript"></pre></code>',
+                template: '<div class="overlay"></div><code><pre></pre></code>',
                 link: function (scope, element) {
                     var partialText = "";
                     var codeBlock = element.find('pre');
@@ -16,8 +16,9 @@ angular.module('de.codearcs.website')
 
                     $timeout(function () {
                         RandomFileService.getRandomFile()
-                            .then(function (file) {
-                                wholeText = file.data;
+                            .then(function (resp) {
+                                codeBlock.addClass(resp.type);
+                                wholeText = resp.file.data;
                                 var wholeTextLines = wholeText.split(/(\n)/);
                                 processLines(wholeTextLines, 0);
                             });
