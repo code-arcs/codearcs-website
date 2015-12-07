@@ -16,7 +16,7 @@ angular.module('de.codearcs.website')
 
         function getRandomFile() {
             var randomFile = Math.round(Math.random() * 9999) % map.length;
-            return $http.get('background/' + map[randomFile].name)
+            return $http.get('background/' + map[randomFile].name + "?time=" + Date.now())
                 .then(function(file) {
                     return {
                         file: file,

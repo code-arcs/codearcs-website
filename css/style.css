@@ -82,6 +82,7 @@ a:focus {
 }
 
 .authors div {
+    display: inline-block;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.6);
 }
@@ -101,7 +102,7 @@ code-console .cursor {
     top: 2px;
     display: inline-block;
     width: 1px;
-    height: 1.4rem;
+    height: 1.2rem;
     margin-left: 3px;
     background-color: #fff;
     animation: blink 1s steps(2, start) infinite;
