@@ -81,10 +81,25 @@ a:focus {
     bottom: 0;
 }
 
+.authors a {
+    color: transparent;
+}
+
 .authors div {
     display: inline-block;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.6);
+}
+
+img.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 100%;
+    border: .4rem solid rgba(255, 255, 255, 0.6);
+    margin: 0 1rem;
+    height: 6rem;
 }
 
 code-console pre {
@@ -120,17 +135,6 @@ code-console .overlay {
 
 pre {
     margin: 0;
-}
-
-img.avatar {
-    display: inline-block;
-    overflow: hidden;
-    line-height: 1;
-    vertical-align: middle;
-    border-radius: 100%;
-    border: .4rem solid rgba(255, 255, 255, 0.6);
-    margin: 0 1rem;
-    height: 6rem;
 }
 
 @keyframes blink {
