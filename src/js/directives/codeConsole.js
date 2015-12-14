@@ -6,13 +6,12 @@ angular.module('de.codearcs.website')
                 link: function (scope, element) {
                     var partialText = "";
                     var codeBlock = element.find('pre');
-                    var waitAfterLineDuration = 500;
-                    var waitAfterCharDuration = 20;
-                    var cursor = $(document.createElement('span')).addClass('cursor');
+                    var waitBeforeStart = random(1000, 4000);
+                    var waitAfterLineDuration = 750;
+                    var waitAfterCharDuration = 50;
                     var wholeText = "";
 
                     hljs.highlightBlock(codeBlock[0]);
-                    codeBlock.append(cursor);
 
                     $timeout(function () {
                         RandomFileService.getRandomFile()
@@ -22,7 +21,7 @@ angular.module('de.codearcs.website')
                                 var wholeTextLines = wholeText.split(/(\n)/);
                                 processLines(wholeTextLines, 0);
                             });
-                    }, random(1000, 4000));
+                    }, waitBeforeStart);
 
                     function processLines(lines, lineIndex) {
                         var isLastElementVisible = isElementInViewport($('span:last', codeBlock)[0]);
@@ -30,7 +29,6 @@ angular.module('de.codearcs.website')
                         if (!isLastElementVisible) {
                             codeBlock.text(wholeText);
                             hljs.highlightBlock(codeBlock[0]);
-                            return;
                         } else {
                             return processLine(lines, lineIndex)
                                 .then(function () {
@@ -54,19 +52,15 @@ angular.module('de.codearcs.website')
 
                         function process() {
                             if (idx < chars.length) {
-                                codeBlock.find('.cursor').remove();
-
                                 while (chars[idx] === " ") {
                                     partialText += chars[idx];
-                                    idx++
+                                    idx++;
                                     codeBlock.text(partialText);
                                 }
-
                                 partialText += chars[idx];
                                 codeBlock.text(partialText);
                                 idx++;
                                 hljs.highlightBlock(codeBlock[0]);
-                                codeBlock.append(cursor);
                             } else {
                                 deferred.resolve();
                                 $interval.cancel(interval);

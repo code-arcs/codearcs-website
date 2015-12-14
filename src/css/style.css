@@ -6,7 +6,7 @@ html {
 
 body {
     min-height: 100%;
-    background-color: #3f3f3f;
+    background-color: #191919;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.2rem;
 }
@@ -102,6 +102,10 @@ img.avatar {
     height: 6rem;
 }
 
+code-console {
+    overflow: hidden;
+}
+
 code-console pre {
     position: absolute;
     box-sizing: border-box;
@@ -112,16 +116,14 @@ code-console pre {
     line-height: 1.3em;
 }
 
-code-console .cursor {
-    position: relative;
-    top: 2px;
-    display: inline-block;
-    width: 1px;
-    height: 1.2rem;
-    margin-left: 3px;
-    background-color: #fff;
-    animation: blink 1s steps(2, start) infinite;
-    -webkit-animation: blink 1s steps(2, start) infinite;
+code-console pre:after {
+    -webkit-animation: cursor-blink 0.8s linear infinite;
+    -moz-animation: cursor-blink 0.8s linear infinite;
+    -o-animation: cursor-blink 0.8s linear infinite;
+    animation: cursor-blink 0.8s linear infinite;
+    content: "|";
+    color: #fff;
+    padding-left: 3px;
 }
 
 code-console .overlay {
@@ -137,15 +139,60 @@ pre {
     margin: 0;
 }
 
-@keyframes blink {
-    to {
-        visibility: hidden;
+@-moz-keyframes cursor-blink {
+    1% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }
-
-@-webkit-keyframes blink {
-    to {
-        visibility: hidden;
+@-webkit-keyframes cursor-blink {
+    1% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes cursor-blink {
+    1% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes cursor-blink {
+    1% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
