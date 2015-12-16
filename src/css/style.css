@@ -203,9 +203,23 @@ pre {
     right: 50px;
 }
 .social a {
+    position: relative;
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.6);
-    padding: 10px;
+    padding: 30px 10px 10px 10px;
+    top: -20px;
+    transition: top 0.3s ease;
+    -moz-transition: top 0.3s ease;
+    -webkit-transition: top 0.3s ease;
+}
+.social a:hover  {
+    top: 0;
+}
+.social a.twitter:hover {
+    background-color: #55ACEE;
+}
+.social a.github:hover {
+    background-color: #4078C0;
 }
 
 @media (max-width: 400px) {
